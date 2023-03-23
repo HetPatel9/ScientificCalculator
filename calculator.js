@@ -117,6 +117,8 @@ function dif(string) {
             // console.log(index);
             // let factAns = fact(b.join(""));
             // let factAns = fact(calculationString[calculationString.length - 1]);
+           let num = calnum(calculationString);
+           let factAns =fact(num);
             calculationString.pop();
             calculationString.push(factAns);
             screenText += "!";
@@ -142,7 +144,7 @@ function dif(string) {
             calculationString = [];
             calculationString.push(ans.toString());
             screenText = ans.toString();
-            // console.log(calculationString);
+            console.log(calculationString);
             break;
         case 'C':
             calculationString = [];
@@ -197,19 +199,6 @@ function calculation(query) {
 }
 function fact(n) {
     let ans = 1;
-    // let b = [];
-    // let index = calculationString.indexOf("!");
-    // console.log(index);
-    // for (let i = index - 1; i >= 0; i--) {
-    //     if (isNaN(a[i])) {
-    //         break;
-    //     }
-    //     else {
-    //         b.unshift(a[i]);
-    //     }
-    // }
-    // console.log(b);
-    // console.log(index);
     if (n == 0) {
         return 1;
     }
@@ -223,3 +212,61 @@ function fact(n) {
     }
     return ans;
 }
+function calnum(a){
+    let b = [];
+    let index = a.indexOf("!");
+    console.log(index);
+    for (let i = index - 1; i >= 0; i--) {
+        if (isNaN(a[i])) {
+            break;
+        }
+        else {
+            b.unshift(a[i]);
+        }
+    }
+    console.log(b);
+    console.log(index);
+    let num = b.join("");
+    return num;
+}
+
+
+// FINAL WORKED ON PROGRAMIZ
+
+// let a = [1,2,"+",1,3,"!","+",5];
+// function calnum(a){
+//     let b = [];
+//     let index = a.indexOf("!");
+//     console.log(index);
+//     for (let i = index - 1; i >= 0; i--) {
+//         if (isNaN(a[i])) {
+//             break;
+//         }
+//         else {
+//             b.unshift(a[i]);
+//         }
+//     }
+//     console.log(b);
+//     console.log(index);
+//     let num = b.join("");
+//     return num;
+// }
+
+// function fact(){
+//     let n = calnum(a);
+//      let ans = 1;
+//     if (n == 0) {
+//         return 1;
+//     }
+//     else if (n > 0) {
+//         for (let i = 1; i <= n; i++) {
+//             ans = i * ans;
+//         }
+//     }
+//     else {
+//         ans = "error";
+//     }
+//     return ans;
+// }
+// let z=fact();
+// console.log(z);
